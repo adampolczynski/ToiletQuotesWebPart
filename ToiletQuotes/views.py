@@ -51,13 +51,13 @@ def stats(request):
     output.insert(0, length)
     return render(request, "stats.html", {"data":output})
 def confirm(request, quote_id, act_pass):
-    if act_pass!="admin666":
+    if act_pass!="xx":
         return redirect("/showQuotes/")
     else:
         client.xxx.ToiletQuotes.update_one({"quote_id":int(quote_id)},{"$set": {"confirmed":1}}, upsert=False)
         return redirect("/showQuotes/")
 def delete(request, quote_id, act_pass):
-    if act_pass!="admin666":
+    if act_pass!="xxxx":
         return redirect("/showQuotes/")
     else:
         client.xxx.ToiletQuotes.remove({"quote_id":int(quote_id)})

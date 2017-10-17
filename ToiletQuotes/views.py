@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from django.template import loader
 import os
 
-url = 'mongodb://anapp:kurwa666!@ds135574.mlab.com:35574/xxx'
+url = 'mongodb://xxxxxxxxxx/xxxxx'
 client = MongoClient(url)
 
 def home(request):

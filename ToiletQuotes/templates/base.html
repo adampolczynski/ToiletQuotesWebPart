@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".menu").click(function(e) {
+		switch(e.target.id) {
+			case "home":
+				window.location.replace("../home/");
+			break;
+			case "new":
+				window.location.replace("../addQuote/");
+			break;
+			case "show":
+				window.location.replace("../showQuotes/");
+			break;
+			case "stats":
+				window.location.replace("../statistics/");
+			break;
+		}
+	});		
+	
+});
+</script>
+<style>
+body {
+	background: #2D3237;
+}
+#main {
+	margin-top: 5%;
+}
+#content {
+	margin-top: 3%;
+	background: #95A9BD !important;
+}
+ul li {
+	display: inline-block;
+	width: 24%;
+	text-align: center;
+	color: black;
+}
+.btn {
+	background: #475360 !important;
+	color: white;
+	font-weight: normal;
+}
+.btn.hover,
+.btn:hover {
+	background: #617487 !important;
+}
+</style>
+<div id="main" class="container well">
+<ul>
+<li id="home" class="menu btn btn-lg">Home</li>
+<li id="new" class="menu btn btn-lg">Dodaj</li>
+<li id="show" class="menu btn btn-lg">Pokaz cytaty</li>
+<li id="stats" class="menu btn btn-lg">Statystyki</li>
+</ul>
+<div id="content" class="container-fluid well">
+{% block content %}{% endblock content %}
+</div>
+</div>

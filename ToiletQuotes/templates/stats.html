@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for q in data %}
+<div style="margin: 0 auto; float: none; text-align: center" class="container-fluid well ">
+<p>Ilość cytatów w bazie: {{ q.length }}</p>
+<hr></hr>
+<p>W tym polskich: {{ q.lengthpl }}</p>
+<p>Angielskich: {{ q.lengthen }}</p>
+<hr></hr>
+<p>Kategorii 0: {{ q.lengthcat0 }}</p>
+<p>Kategorii 1: {{ q.lengthcat1 }}</p>
+
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+#quotes li {
+	display: inline-block;
+	width: 15%;
+}
+#quotes li p {
+	text-align: center;
+	margin:0 auto;
+}	
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".verify").click(function(e) {
+		var a = prompt("Insert admin password","pass");
+		window.location.replace("/confirm/"+e.target.id+"/"+a);
+		
+	});
+	$(".delete").click(function(e) {
+		var a = prompt("Insert admin password","pass");
+		window.location.replace("/delete/"+e.target.id+"/"+a);
+		
+	});
+});
+</script>
+<ul id="quotes">
+<li><p>Użytkownik</p></li>
+<li><p>Język</p></li>
+<li><p>Cytat</p></li>
+<li><p>Kategoria</p></li>
+<li><p>Zaakceptowany</p></li>
+<li><p>Usun</p></li>
+</ul>
+<hr></hr>
+{{ form.errors }}
+{{ form.non_field_errors }}
+{% for q in quotes %}
+<ul class="well" id="quotes" class="row">
+<li><p>{{ q.user }}</p></li>
+<li><p>{{ q.lang }}</p></li>
+<li><p >{{ q.quote }}</p></li>
+<li><p>{{ q.category }}</p></li>
+{% if q.confirmed == 0 %}
+<li><a class="verify" id="{{q.quote_id}}" href="#">Zatwierdz</a></li>
+{% else %}
+<li><p style="color: green">Tak</p></li>
+{% endif %}
+
+<li><a class="delete" id="{{q.quote_id}}" href="#">DEL</a></li>
+</ul>
+
+{% endfor %}
+
+{% endblock %}
